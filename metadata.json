@@ -1,0 +1,5 @@
+{
+  "name": "PDFDrop",
+  "description": "Fast, secure, and private online tool to compress and merge PDF files directly in your browser. No sign-up, no tracking, and no file uploads to servers.",
+  "requestFramePermissions": []
+}
