@@ -1,10 +1,9 @@
-
 import { PDFDocument } from 'pdf-lib';
-import * as pdfjsLib from 'pdfjs-dist';
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf';
 import { CompressionLevel } from '../types';
 
-// Set worker source for pdfjs-dist using the same version as the importmap
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://esm.sh/pdfjs-dist@4.0.379/build/pdf.worker.mjs';
+// Use the legacy worker build which avoids top-level await
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@4.0.379/build/pdf.worker.js';
 
 /**
  * Generates a thumbnail image (base64) for the first page of a PDF file.
@@ -13,7 +12,7 @@ export async function generateThumbnail(file: File): Promise<string> {
   const arrayBuffer = await file.arrayBuffer();
   const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
   const pdf = await loadingTask.promise;
-  
+
   // Get the first page
   const page = await pdf.getPage(1);
   const scale = 0.4;
