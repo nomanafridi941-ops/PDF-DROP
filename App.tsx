@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Layers } from 'lucide-react';
 
 import Home from './components/Home';
@@ -32,8 +32,8 @@ const App: React.FC = () => {
               <span className="text-xl font-bold tracking-tight">PDFDrop</span>
             </Link>
             <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-              <a href="/#how-it-works" className="hover:text-primary-600 transition-colors">How it works</a>
-              <a href="/#faq" className="hover:text-primary-600 transition-colors">FAQ</a>
+              <Link to="/" className="hover:text-primary-600 transition-colors">How it works</Link>
+              <Link to="/" className="hover:text-primary-600 transition-colors">FAQ</Link>
               <Link to="/contact" className="hover:text-primary-600 transition-colors">Support</Link>
             </nav>
           </div>
